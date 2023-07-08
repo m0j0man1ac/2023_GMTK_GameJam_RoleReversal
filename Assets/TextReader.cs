@@ -7,20 +7,16 @@ using TMPro;
 public class TextReader : MonoBehaviour
 {
     public TMP_Text objectText;
-
-    public string activeText;
-
     public string text;
-
     public float lettersPerSecond = 20;
+
+    public string[] sounds;
 
     // Start is called before the first frame update
     void Start()
     {
         objectText = GetComponent<TMP_Text>();
-
-        activeText = "";
-        objectText.text = activeText;
+        objectText.text = "";
 
         StartDialouge(text);
     }
@@ -36,6 +32,7 @@ public class TextReader : MonoBehaviour
         foreach(char letter in sentence)
         {
             objectText.text += letter;
+            AudioManagerScript.instance.PlaySoundRandomPitch(sounds[Random.Range(0,sounds.Length)]);
             yield return new WaitForSeconds(1/lettersPerSecond);
         }
 
