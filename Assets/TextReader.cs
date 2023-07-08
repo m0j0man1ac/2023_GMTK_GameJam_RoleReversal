@@ -35,7 +35,6 @@ public class TextReader : MonoBehaviour
             AudioManagerScript.instance.PlaySoundRandomPitch(sounds[Random.Range(0,sounds.Length)]);
             yield return new WaitForSeconds(1/lettersPerSecond);
         }
-        AudioMan
 
         yield return null;
     }
