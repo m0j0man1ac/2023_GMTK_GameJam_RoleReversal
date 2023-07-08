@@ -7,20 +7,34 @@ public class AttackAim : MonoBehaviour
     public Vector3 screenPosition;
     public Vector3 worldPosition;
 
+    public float speed = 2.0f;
     public float closestDistance;
 
-    public PolygonCollider2D playerCol;
-    void Start()
-    {
+    public float originalX;
+    public bool isMoving = true;
 
+    public PolygonCollider2D playerCol;
+    void Awake()
+    {
+        originalX = this.transform.position.x;
     }
 
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            isMoving = false;
+        }
+        if(isMoving)
+        {
+            transform.position = new Vector2(originalX + Mathf.Sin(Time.time * 5) * speed, 0);
+        }
+        //move attack aim with mouse x position
+        /*
         screenPosition = Input.mousePosition;
         worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
         transform.position = new Vector2(worldPosition.x, 0);
+        */
 
         GetClosestDistance(playerCol, this.GetComponentInChildren<PolygonCollider2D>());
 
