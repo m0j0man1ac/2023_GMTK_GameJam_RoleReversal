@@ -15,14 +15,14 @@ public class CardDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(setCard!=null)
-            CardUpdate(setCard);
+        //if(setCard!=null)
+          //  CardUpdate(setCard);
     }
 
     public void CardUpdate(Card card)
     {
         cardName.text = card.name;
         description.text = card.desription;
-        spriteR.sprite = card.artIcon;
+        if(card.artIcon!=null) spriteR.sprite = card.artIcon;
     }
 }
