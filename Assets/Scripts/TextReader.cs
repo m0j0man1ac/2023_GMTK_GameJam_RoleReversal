@@ -32,7 +32,7 @@ public class TextReader : MonoBehaviour
         foreach(char letter in sentence)
         {
             objectText.text += letter;
-            AudioManagerScript.instance.PlaySoundRandomPitch(sounds[Random.Range(0,sounds.Length)]);
+            AudioManagerScript.instance.PlaySoundRandomPitch(sounds[Random.Range(0,sounds.Length)], .1f);
             yield return new WaitForSeconds(1/lettersPerSecond);
         }
 

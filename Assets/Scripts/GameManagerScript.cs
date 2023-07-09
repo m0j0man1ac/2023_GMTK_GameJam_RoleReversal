@@ -43,6 +43,8 @@ public class GameManagerScript : MonoBehaviour
     private void Start()
     {
         StartCoroutine(DealHand());
+
+        currentTurn = TurnState.Villain;
     }
 
     // Update is called once per frame
@@ -86,7 +88,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void DealCard()
     {
-        if (deck.Count <= 0) return;
+        if (deck.Count <= 0) ShuffleDiscard();
         if (hand.Count >= handSize) return;
 
         Transform dealtCard = GameObject.Instantiate(cardPrefab, deckT.position, Quaternion.Euler(0,0,90)).transform;
@@ -97,6 +99,17 @@ public class GameManagerScript : MonoBehaviour
 
         hand.Add(dealtCard);
         UpdateHandPositions();
+    }
+
+    public void ShuffleDiscard()
+    {
+        Debug.Log("shuffling");
+        while(discard.Count>0)
+        {
+            int randomIdx = Random.Range(0, discard.Count);
+            deck.Enqueue(discard[randomIdx]);
+            discard.RemoveAt(randomIdx);
+        }
     }
 
     public Transform deckT, discardT;
@@ -212,7 +225,7 @@ public class GameManagerScript : MonoBehaviour
         Vector3 dir = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
         hand[idx].DORotate(Vector3.zero, cardAnimSpeed/2).SetEase(Ease.OutQuad);
-        hand[idx].DOMove(handOrigin.position + dir * cardDistanceFromOrigin*1.1f - Vector3.forward, cardAnimSpeed/2).SetEase(Ease.OutQuad);
+        hand[idx].DOMove(handOrigin.position + dir * cardDistanceFromOrigin*1.1f, cardAnimSpeed/2).SetEase(Ease.OutQuad);
     }
 
 
@@ -264,5 +277,68 @@ public class GameManagerScript : MonoBehaviour
         if (CourageMetre.instance == null) return;
         CourageMetre.instance.increaseCourage((int)card.braveryVal);
         DramaMetre.instance.increaseDrama((int)card.dramaVal);
+    }
+
+    public void PlayHeroMove(Card card)
+    {
+        HealthManagerScript.instance.HeroDamage((int)card.damage);
+        HealthManagerScript.instance.VillainDamage(-(int)card.healing);
+
+        if (CourageMetre.instance == null) return;
+        CourageMetre.instance.increaseCourage((int)card.braveryVal);
+        DramaMetre.instance.increaseDrama((int)card.dramaVal);
+    }
+
+    //TURNS
+    public delegate void MyVoidDelegate();
+    public MyVoidDelegate cardPickUpDelegate;
+    public MyVoidDelegate cardPutDownDelegate;
+    public MyVoidDelegate cardPlayDelegate;
+
+    enum TurnState { Shuffle, Hero, Villain, Wait, Animating };
+    TurnState currentTurn = TurnState.Shuffle;
+
+    public Card[] HeroMoves;
+
+    public void EmptyHand()
+    {
+        Transform[] tempHand = hand.ToArray();
+        hand.Clear();
+
+        foreach(Transform card in tempHand)
+        {
+            discard.Add(card.GetComponent<CardDisplay>().setCard);
+            card.DOMove(discardT.position, cardAnimSpeed);
+            card.DORotate(new Vector3(0, 0, -90), cardAnimSpeed);
+        }
+    }
+
+    public void EndTurn()
+    {
+        if (currentTurn != TurnState.Villain) return;
+
+        Debug.Log("End Turn");
+        EmptyHand();
+        currentTurn = TurnState.Hero;
+        HeroTurn();
+    }
+
+    public void HeroTurn()
+    {
+        if (HeroMoves.Length>0)
+        {
+            Card move = HeroMoves[Random.Range(0, HeroMoves.Length)];
+            PlayHeroMove(move);
+        }
+
+        Debug.Log("Did Hero's Turn");
+        currentTurn = TurnState.Shuffle;
+        DealingTurn();
+    }
+
+    public void DealingTurn()
+    {
+        DealHand();
+        currentTurn = TurnState.Villain;
     }
 }

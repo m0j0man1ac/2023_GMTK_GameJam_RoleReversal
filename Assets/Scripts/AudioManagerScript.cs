@@ -49,10 +49,10 @@ public class AudioManagerScript: MonoBehaviour
         return;
     }
 
-    public void PlaySoundRandomPitch(string sound)
+    public void PlaySoundRandomPitch(string sound, float pitchDif)
     {
         Sound s = null;
-        foreach (Sound temp in sounds) if (temp.name.Equals(sound)) s = temp;
+        foreach (Sound tempS in sounds) if (tempS.name.Equals(sound)) s = tempS;
 
         //null check
         if(s==null || s.source==null)
@@ -61,10 +61,21 @@ public class AudioManagerScript: MonoBehaviour
             return;
         }
 
-        //change pitch, play, reset pitch
-        s.source.pitch = s.pitch + UnityEngine.Random.Range(-.2f,.2f);
-        if (s.source != null) s.source.Play();
-        //s.source.pitch = s.pitch;
+        //create sound instance
+        GameObject temp = new GameObject(s.name);
+        temp.transform.parent = transform;
+
+        AudioSource sInstance = temp.AddComponent<AudioSource>();
+        sInstance.clip = s.clip;
+        sInstance.volume = s.volume;
+        sInstance.pitch = s.pitch + UnityEngine.Random.Range(-pitchDif, pitchDif);
+        sInstance.playOnAwake = false;
+
+        sInstance.outputAudioMixerGroup = s.audioMixGroup;
+
+        if (sInstance != null) sInstance.Play();
+        //delete instance
+        GameObject.Destroy(temp, 1f);
     }
 
     public void StartSoundLoop(string sound, float time)
