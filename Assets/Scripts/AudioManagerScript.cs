@@ -55,7 +55,7 @@ public class AudioManagerScript: MonoBehaviour
         foreach (Sound temp in sounds) if (temp.name.Equals(sound)) s = temp;
 
         //null check
-        if(s.source==null)
+        if(s==null || s.source==null)
         {
             Debug.LogError("cant find sound: " + sound);
             return;

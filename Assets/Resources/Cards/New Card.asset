@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca18534786d85044905e69ee1191b53, type: 3}
   m_Name: New Card
   m_EditorClassIdentifier: 
-  name: 
+  name: New Card
   cardType: 
   artIcon: {fileID: 0}
   desription: 
   energyCost: 0
   dramaVal: 0
   braveryVal: 0
-  damage: 0
-  healing: 0
+  damage: 1
+  healing: 70
