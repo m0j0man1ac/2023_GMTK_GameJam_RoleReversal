@@ -157,13 +157,13 @@ MonoBehaviour:
   - name: 
     clip: {fileID: 8300000, guid: 85c02e31e1060f54da77323705ae68ae, type: 3}
     audioMixGroup: {fileID: 0}
-    volume: 1
+    volume: 0.2
     pitch: 1
     source: {fileID: 0}
   - name: 
     clip: {fileID: 8300000, guid: 545a196bfd0c09544a22d26fccb2e1ea, type: 3}
     audioMixGroup: {fileID: 0}
-    volume: 1
+    volume: 0.2
     pitch: 1
     source: {fileID: 0}
 --- !u!4 &273608310

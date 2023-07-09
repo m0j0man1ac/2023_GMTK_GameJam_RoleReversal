@@ -24,8 +24,6 @@ public class DramaMetre : MonoBehaviour
     {
         slider.value = 0;
         slider.maxValue = drama;
-
-        fill.color = gradient.Evaluate(1f);
     }
 
     public void setDrama(int drama)

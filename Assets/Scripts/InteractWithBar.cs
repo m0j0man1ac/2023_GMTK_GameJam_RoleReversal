@@ -10,8 +10,8 @@ public class Interactwithbar : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             CourageMetre.instance.increaseCourage(20);
-            DramaMetre.instance.increaseDrama(10);
-            //Debug.Log();
+            DramaMetre.instance.increaseDrama(20);
+            Debug.Log("increase");
         }
     }
 }
