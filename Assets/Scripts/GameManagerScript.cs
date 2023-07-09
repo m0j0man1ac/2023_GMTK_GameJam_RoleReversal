@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.VersionControl;
+//using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -83,6 +83,7 @@ public class GameManagerScript : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenDealtCards);
         }
 
+        currentTurn = TurnState.Villain;
         yield return null;
     }
 
@@ -312,6 +313,7 @@ public class GameManagerScript : MonoBehaviour
             discard.Add(card.GetComponent<CardDisplay>().setCard);
             card.DOMove(discardT.position, cardAnimSpeed);
             card.DORotate(new Vector3(0, 0, -90), cardAnimSpeed);
+            GameObject.Destroy(card.gameObject);
         }
     }
 
@@ -342,6 +344,6 @@ public class GameManagerScript : MonoBehaviour
     {
         Debug.Log("Dealing turn");
         StartCoroutine(DealHand());
-        currentTurn = TurnState.Villain;
+        //currentTurn = TurnState.Villain;
     }
 }
