@@ -243,7 +243,9 @@ public class GameManagerScript : MonoBehaviour
         if (Input.mousePosition.y > Screen.height / 3)
         {
             hand.Remove(heldCard);
-            discard.Add(heldCard.GetComponent<CardDisplay>().setCard);
+            Card card = heldCard.GetComponent<CardDisplay>().setCard;
+            discard.Add(card);
+            PlayCard(card);
             GameObject.Destroy(heldCard.gameObject, .5f);
         }
         else
@@ -252,5 +254,15 @@ public class GameManagerScript : MonoBehaviour
         }
 
         heldCard = null;
+    }
+
+    public void PlayCard(Card card)
+    {
+        HealthManagerScript.instance.HeroDamage((int)card.damage);
+        HealthManagerScript.instance.VillainDamage(-(int)card.healing);
+
+        if (CourageMetre.instance == null) return;
+        CourageMetre.instance.increaseCourage((int)card.braveryVal);
+        DramaMetre.instance.increaseDrama((int)card.dramaVal);
     }
 }
