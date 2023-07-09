@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2505794834618099915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8219921014232319618}
+  - component: {fileID: 6689332144238606337}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8219921014232319618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2505794834618099915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 525.9431, y: 457.58563, z: 4.8373003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6689332144238606337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2505794834618099915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861082f7041c206429a67f652c001575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeMusic: []
+  sounds:
+  - name: Man Yelling In Pain
+    clip: {fileID: 8300000, guid: c7d92c82697687b43af17227c1756456, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Card Slam
+    clip: {fileID: 8300000, guid: 5eacd746f6ab5fe48b5c51ddbce11f5f, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Card Flicker
+    clip: {fileID: 8300000, guid: d56b98beae0bd2840a89513d8e0d671d, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Card Flicker
+    clip: {fileID: 8300000, guid: d56b98beae0bd2840a89513d8e0d671d, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Meaty Slash
+    clip: {fileID: 8300000, guid: 13284347c55eaf04891d2dfda97c7d3e, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Pierce
+    clip: {fileID: 8300000, guid: 4edfe6e61b68d754c982c1b383e37253, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Slash
+    clip: {fileID: 8300000, guid: c0f6941e7f0c2194f883fa3eec481ea1, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Swing Miss
+    clip: {fileID: 8300000, guid: c3639d8edcc4a2541bf2a4307d5ab50c, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Super Swing Miss
+    clip: {fileID: 8300000, guid: 57b3426ba63a10a429710d458b769ce8, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: HeroCry
+    clip: {fileID: 8300000, guid: 85c02e31e1060f54da77323705ae68ae, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: HeroCry2
+    clip: {fileID: 8300000, guid: 545a196bfd0c09544a22d26fccb2e1ea, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
