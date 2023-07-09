@@ -354,6 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4848050229280588018}
   - component: {fileID: 1184895192382734271}
+  - component: {fileID: 8948156332745987589}
   m_Layer: 0
   m_Name: CardExample1
   m_TagString: Untagged
@@ -392,10 +393,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284ecc70fd7c072468ac2ace47867c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setCard: {fileID: 11400000, guid: 33232b0db2804e14697a3eebe0cc9927, type: 2}
+  setCard: {fileID: 0}
   cardName: {fileID: 6690134292906209792}
   description: {fileID: 1339034797714992575}
   spriteR: {fileID: 4497362288823914078}
+--- !u!210 &8948156332745987589
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3699821456098433420}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &4188007733203456424
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +504,7 @@ GameObject:
   - component: {fileID: 2431368829311255873}
   - component: {fileID: 4497362288823914078}
   m_Layer: 0
-  m_Name: dummyAttackIcon
+  m_Name: cardIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
