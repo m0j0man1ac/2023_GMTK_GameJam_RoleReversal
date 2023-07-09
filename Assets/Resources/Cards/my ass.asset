@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca18534786d85044905e69ee1191b53, type: 3}
   m_Name: my ass
   m_EditorClassIdentifier: 
-  name: 
+  name: My Ass
   cardType: 
   artIcon: {fileID: 0}
   desription: 

@@ -307,15 +307,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77140442aa073404dbd2d66492dd443c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSize: 4
+  handSize: 5
   allCards: []
   discard: []
   hand: []
   cardPrefab: {fileID: 3699821456098433420, guid: acb998d632c8f30449c5c38492bd7828, type: 3}
+  deckT: {fileID: 1943324737}
+  discardT: {fileID: 436920368}
   handOrigin: {fileID: 1873748882}
+  cardSortLayer: 10
   cardAnimSpeed: 0.2
   cardAngleSpacing: 10
   cardDistanceFromOrigin: 13
+  zoomedCardScale: {x: 4, y: 4, z: 1}
+  hoveredCards: []
+  cardMask:
+    serializedVersion: 2
+    m_Bits: 64
+  activeCard: {fileID: 0}
 --- !u!4 &1673496003
 Transform:
   m_ObjectHideFlags: 0
