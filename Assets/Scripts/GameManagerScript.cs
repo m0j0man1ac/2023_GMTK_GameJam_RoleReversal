@@ -88,6 +88,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void DealCard()
     {
+        Debug.Log("Deal Card");
         if (deck.Count <= 0) ShuffleDiscard();
         if (hand.Count >= handSize) return;
 
@@ -281,8 +282,9 @@ public class GameManagerScript : MonoBehaviour
 
     public void PlayHeroMove(Card card)
     {
-        HealthManagerScript.instance.HeroDamage((int)card.damage);
-        HealthManagerScript.instance.VillainDamage(-(int)card.healing);
+        Debug.Log("hero uses " + card.name);
+        HealthManagerScript.instance.VillainDamage((int)card.damage);
+        HealthManagerScript.instance.HeroDamage(-(int)card.healing);
 
         if (CourageMetre.instance == null) return;
         CourageMetre.instance.increaseCourage((int)card.braveryVal);
@@ -338,7 +340,8 @@ public class GameManagerScript : MonoBehaviour
 
     public void DealingTurn()
     {
-        DealHand();
+        Debug.Log("Dealing turn");
+        StartCoroutine(DealHand());
         currentTurn = TurnState.Villain;
     }
 }
