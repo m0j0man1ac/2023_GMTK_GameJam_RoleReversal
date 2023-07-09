@@ -13,7 +13,7 @@ public class CourageMetre : MonoBehaviour
     public int maxCourage = 100;
     public int currentCourage;
     
-    void Awake()
+    void Start()
     {
         setMaxCourage(100);
         instance=this;
@@ -22,10 +22,8 @@ public class CourageMetre : MonoBehaviour
 
     public void setMaxCourage(int courage)
     {
-        slider.value = 0;
+        slider.value = 1;
         slider.maxValue = courage;
-
-        fill.color = gradient.Evaluate(1f);
     }
 
     public void setCourage(int courage)
