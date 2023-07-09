@@ -65,7 +65,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence)
         {
             text.text += letter;
-            AudioManagerScript.instance.PlaySoundRandomPitch(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
+            AudioManagerScript.instance.PlaySoundRandomPitch(sounds[UnityEngine.Random.Range(0, sounds.Length)], .1f);
             yield return new WaitForSeconds(1 / lettersPerSecond);
             timer = 0;
         }
