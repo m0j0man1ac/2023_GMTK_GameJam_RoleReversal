@@ -265,16 +265,29 @@ public class GameManagerScript : MonoBehaviour
         }
         else
         {
-            ResetCardPositionInHand(hand.IndexOf(heldCard));
+            UpdateHandPositions();
+            //ResetCardPositionInHand(hand.IndexOf(heldCard));
         }
 
         heldCard = null;
     }
 
+    public float villainHealMult =1f, villainAttackMult =1f;
+    public float heroHealMult =1f, heroAttackMult=1f;
     public void PlayCard(Card card)
     {
-        HealthManagerScript.instance.HeroDamage((int)card.damage);
-        HealthManagerScript.instance.VillainDamage(-(int)card.healing);
+        //do effect
+        if (card.effects != null)
+        {
+            foreach (CardEffect effect in card.effects)
+            {
+                Debug.Log("doing an effect");
+                effect.DoEffect();
+            }
+        }
+
+        HealthManagerScript.instance.HeroDamage((int)(card.damage*villainAttackMult));
+        HealthManagerScript.instance.VillainDamage(-(int)(card.healing*villainHealMult));
 
         if (CourageMetre.instance == null) return;
         CourageMetre.instance.increaseCourage((int)card.braveryVal);
@@ -284,8 +297,8 @@ public class GameManagerScript : MonoBehaviour
     public void PlayHeroMove(Card card)
     {
         Debug.Log("hero uses " + card.name);
-        HealthManagerScript.instance.VillainDamage((int)card.damage);
-        HealthManagerScript.instance.HeroDamage(-(int)card.healing);
+        HealthManagerScript.instance.VillainDamage((int)(card.damage*heroAttackMult));
+        HealthManagerScript.instance.HeroDamage(-(int)(card.healing*heroHealMult));
 
         if (CourageMetre.instance == null) return;
         CourageMetre.instance.increaseCourage((int)card.braveryVal);

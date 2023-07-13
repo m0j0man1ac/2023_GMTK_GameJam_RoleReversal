@@ -2021,6 +2021,10 @@ MonoBehaviour:
     m_Bits: 64
   activeCard: {fileID: 0}
   heldCard: {fileID: 0}
+  villainHealMult: 1
+  villainAttackMult: 1
+  heroHealMult: 1
+  heroAttackMult: 1
   HeroMoves:
   - {fileID: 11400000, guid: a7640a80634219e4ba6d7d18eb519155, type: 2}
   - {fileID: 11400000, guid: 615c671793e8bc8449cb261091fd2355, type: 2}
