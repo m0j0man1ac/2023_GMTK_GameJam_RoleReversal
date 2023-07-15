@@ -1978,6 +1978,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd68fa2b2a3b3754b90bfef7794d271f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogues:
+  - sentences: []
+  - sentences: []
+  - sentences: []
+  - sentences: []
+  - sentences: []
+  - sentences: []
+  - sentences: []
+  - sentences: []
   dialogueStrings: []
   dialogueBox: {fileID: 5611333005161444330}
   timer: 0
@@ -2036,7 +2045,7 @@ MonoBehaviour:
   HeroChad:
     sentences:
     - You are puny, do you even count as a villain?
-    - 'You are just some low level grunt. '
+    - You are just some low level grunt.
     - 'Move, youre in the way of destiny. '
     - The prophecy chose me as the hero, I can understand why.
     - 'My hair flows through the wind like the rivers of time. '

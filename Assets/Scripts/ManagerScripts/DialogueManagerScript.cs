@@ -7,9 +7,13 @@ public class DialogueManagerScript : MonoBehaviour
 {
     public static DialogueManagerScript instance;
 
+    public Dialogue[] dialogues;
+
     public static DialogueOption dialogueOption;
     public string[] dialogueStrings;
 
+
+    private bool firstDialogue = true;
     public GameObject dialogueBox;
     public float timer = 0f;
     private string[] sentences;
@@ -35,6 +39,17 @@ public class DialogueManagerScript : MonoBehaviour
 
     void Start()
     {
+        dialogues = new Dialogue[]
+        {
+            Attacking,
+            Debuff,
+            Mono,
+            Shield,
+            PlayerAttacked,
+            HeroLow,
+            HeroMid,
+            HeroChad
+        };
         dialogueBox.SetActive(false);
     }
 
@@ -47,80 +62,14 @@ public class DialogueManagerScript : MonoBehaviour
         }
     }
 
-    public void TriggerDialogue()
+    public void TriggerDialogue(DialogueOption dialogueOptionManager)
     {
-        if(dialogueOption == DialogueOption.Attacking)
+        dialogueStrings = new string[dialogues[(int)dialogueOptionManager].sentences.Length];
+        for(int i = 0; i < dialogueStrings.Length; i++)
         {
-            dialogueStrings = new string[Attacking.sentences.Length];
-            for (int i = 0; i < Attacking.sentences.Length; i++)
-            {
-                dialogueStrings[i] = Attacking.sentences[i].ToString();
-            }
-            StartDialogue(dialogueStrings);
+            dialogueStrings[i] = dialogues[(int)dialogueOptionManager].sentences[i];
         }
-        if (dialogueOption == DialogueOption.Debuff)
-        {
-            dialogueStrings = new string[Debuff.sentences.Length];
-            for (int i = 0; i < Debuff.sentences.Length; i++)
-            {
-                dialogueStrings[i] = Debuff.sentences[i].ToString();
-            }
-            StartDialogue(dialogueStrings);
-        }
-        if (dialogueOption == DialogueOption.Mono)
-        {
-            dialogueStrings = new string[Mono.sentences.Length];
-            for (int i = 0; i < Mono.sentences.Length; i++)
-            {
-                dialogueStrings[i] = Mono.sentences[i].ToString();
-            }
-            StartDialogue(dialogueStrings);
-        }
-        if (dialogueOption == DialogueOption.Shield)
-        {
-            dialogueStrings = new string[Shield.sentences.Length];
-            for (int i = 0; i < Shield.sentences.Length; i++)
-            {
-                dialogueStrings[i] = Shield.sentences[i].ToString();
-            }
-            StartDialogue(dialogueStrings);
-        }
-        if (dialogueOption == DialogueOption.PlayerAttacked)
-        {
-            dialogueStrings = new string[PlayerAttacked.sentences.Length];
-            for (int i = 0; i < PlayerAttacked.sentences.Length; i++)
-            {
-                dialogueStrings[i] = PlayerAttacked.sentences[i].ToString();
-            }
-            StartDialogue(dialogueStrings);
-        }
-        if (dialogueOption == DialogueOption.HeroLow)
-        {
-            dialogueStrings = new string[HeroLow.sentences.Length];
-            for (int i = 0; i < HeroLow.sentences.Length; i++)
-            {
-                dialogueStrings[i] = HeroLow.sentences[i].ToString();
-            }
-            StartDialogue(dialogueStrings);
-        }
-        if (dialogueOption == DialogueOption.HeroMid)
-        {
-            dialogueStrings = new string[HeroMid.sentences.Length];
-            for (int i = 0; i < HeroLow.sentences.Length; i++)
-            {
-                dialogueStrings[i] = HeroMid.sentences[i].ToString();
-            }
-            StartDialogue(dialogueStrings);
-        }
-        if (dialogueOption == DialogueOption.HeroChad)
-        {
-            dialogueStrings = new string[HeroChad.sentences.Length];
-            for (int i = 0; i < HeroChad.sentences.Length; i++)
-            {
-                dialogueStrings[i] = HeroChad.sentences[i].ToString();
-            }
-            StartDialogue(dialogueStrings);
-        }
+        StartDialogue(dialogueStrings);  
     }
 
     public void StartDialoguePre(string sentence)
@@ -137,7 +86,15 @@ public class DialogueManagerScript : MonoBehaviour
         {
             sentences[i] = dialogueSentences[i];
         }
-        textS = sentences[UnityEngine.Random.Range(0, dialogueSentences.Length)];
+        if(firstDialogue)
+        {
+            textS = " " + sentences[UnityEngine.Random.Range(0, dialogueSentences.Length)];
+            firstDialogue = false;
+        }
+        else
+        {
+            textS = sentences[UnityEngine.Random.Range(0, dialogueSentences.Length)];
+        }
         StartDialoguePre(textS);
     }
 
@@ -167,4 +124,3 @@ public enum DialogueOption
     HeroMid,
     HeroChad
 }
-
