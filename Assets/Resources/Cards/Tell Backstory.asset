@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tell Backstory
   m_EditorClassIdentifier: 
   name: Tell BackStory
-  cardType: Debuff
+  cardType: 2
   artIcon: {fileID: 0}
   desription: Manipulate the hero with empathy
   energyCost: 0
@@ -21,3 +21,4 @@ MonoBehaviour:
   braveryVal: -20
   damage: -10
   healing: 0
+  effects: []

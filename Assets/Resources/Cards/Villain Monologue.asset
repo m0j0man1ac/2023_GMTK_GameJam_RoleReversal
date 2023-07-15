@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Villain Monologue
   m_EditorClassIdentifier: 
   name: Villain Monologue
-  cardType: Debuff
+  cardType: 2
   artIcon: {fileID: 0}
   desription: Explain the difference in power
   energyCost: 0
@@ -21,3 +21,4 @@ MonoBehaviour:
   braveryVal: 5
   damage: -5
   healing: 0
+  effects: []

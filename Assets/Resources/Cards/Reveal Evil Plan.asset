@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Reveal Evil Plan
   m_EditorClassIdentifier: 
   name: Reveal Evil Plan
-  cardType: Debuff
+  cardType: 1
   artIcon: {fileID: 0}
   desription: Enrage the hero with your devious plan. Raises hero damage.
   energyCost: 0
@@ -21,3 +21,4 @@ MonoBehaviour:
   braveryVal: -5
   damage: 5
   healing: 0
+  effects: []

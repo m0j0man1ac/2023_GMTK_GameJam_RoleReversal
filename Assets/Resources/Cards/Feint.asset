@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Feint
   m_EditorClassIdentifier: 
   name: Feint
-  cardType: Debuff
+  cardType: 1
   artIcon: {fileID: 0}
   desription: Doubles damage of next attack
   energyCost: 0
@@ -21,3 +21,4 @@ MonoBehaviour:
   braveryVal: -5
   damage: 0
   healing: 0
+  effects: []
