@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9125257370967029379}
-  - component: {fileID: 8493478366870694853}
-  - component: {fileID: 5319493219363181161}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -33,101 +31,6 @@ Transform:
   m_Father: {fileID: 2041705369352232383}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8493478366870694853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525344213797219280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3a448dc9636d7458c5d06df881961d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 5611333004086874240}
-  timer: 0
-  text: {fileID: 1502031806432618044}
-  textS: 
-  AttackingDialogues:
-    sentences:
-    - Take this!
-    - Eat this!
-    - RAAAgh
-    - You won't stand a chance!
-    - How is this for size?
-    - Git gud
-    - YOU LOSER!
-  DebuffDialogues:
-    sentences:
-    - Now I bring out the strats
-    - Let the game begin
-    - Don't lose your head!
-    - Get a load of this!
-  MonoDialogues:
-    sentences:
-    - 'Let me tell you about this time way back when, I was a little boy, no, a young
-      man, no, a child. My mother once - You have spunk, follow me hero, if we join
-      together we could change the destiny of the world together, your prophecy is
-      nothing but a scam. Now be prepared for my next moves, I have been training
-      all my life to one day match you, it is time for me to show you how I can ruin
-      you in a matter of seconds. Please go easy on me, hero you are so strong this
-      is an unfair fight, fight me on equal terms cheater. '
-  ShieldDialogues:
-    sentences:
-    - "Give me a minute\u2026"
-  PlayerAttackedDialogues:
-    sentences:
-    - Did your ungendered weak parent teach you how to punch?
-    - "A weakling like you won\u2019t last a minute out there!"
-    - PUSSY
-    - Lmao ur bad go next
-    - You punch like a milk drinker
-    - WEAKLING
-    - My toe nail has more power than you
-    - Purr slay queen jajaja
-    - Were you born this weak or did you train to be weaker?
-    - Did a child teach you how to fight?
-    - 'Insert dialogue '
-  HeroLowDialogues:
-    sentences:
-    - I- I- I don't want to fight y-y-y-you
-    - "I didn\u2019t choose to be the h-h-hero "
-    - Please let me go I w-w-wont tell anybody I swears it
-  HeroMidDialogues:
-    sentences:
-    - 'These will be your final days villain! '
-    - "You\u2019re tough, but I can do this!"
-    - This is not over yet!
-  HeroChadDialogues:
-    sentences:
-    - You are puny, do you even count as a villain?
-    - 'You are just some low level grunt. '
-    - 'Move, youre in the way of destiny. '
-    - The prophecy chose me as the hero, I can understand why.
-    - The prophecy chose me as the hero, I can understand why.
-    - 'My hair flows through the wind like the rivers of time. '
-    - Begone.
-  dialogueTrigger: {fileID: 5319493219363181161}
-  lettersPerSecond: 20
-  sounds:
-  - HeroCry1
-  - HeroCry2
---- !u!114 &5319493219363181161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525344213797219280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3250d498c269e041bb369a78263d63e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 8493478366870694853}
-  dialogueOption: 0
-  dialogueStrings: []
 --- !u!1 &5225222901260973369
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +377,7 @@ RectTransform:
   - {fileID: 9125257370967029379}
   - {fileID: 3715655250354446421}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

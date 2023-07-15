@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Charge
   m_EditorClassIdentifier: 
   name: Charge
-  cardType: Debuff
+  cardType: 1
   artIcon: {fileID: 0}
   desription: Stuns for 1 turn
   energyCost: 0
@@ -21,3 +21,4 @@ MonoBehaviour:
   braveryVal: -5
   damage: 2
   healing: 0
+  effects: []

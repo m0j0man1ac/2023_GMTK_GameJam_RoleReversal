@@ -288,6 +288,9 @@ public class GameManagerScript : MonoBehaviour
 
         HealthManagerScript.instance.HeroDamage((int)(card.damage*villainAttackMult));
         HealthManagerScript.instance.VillainDamage(-(int)(card.healing*villainHealMult));
+        DialogueManagerScript.dialogueOption = (DialogueOption)card.cardType;
+        Debug.Log(DialogueManagerScript.dialogueOption + ", " + (DialogueOption)card.cardType);
+        DialogueManagerScript.instance.TriggerDialogue();
 
         if (CourageMetre.instance == null) return;
         CourageMetre.instance.increaseCourage((int)card.braveryVal);
@@ -299,6 +302,8 @@ public class GameManagerScript : MonoBehaviour
         Debug.Log("hero uses " + card.name);
         HealthManagerScript.instance.VillainDamage((int)(card.damage*heroAttackMult));
         HealthManagerScript.instance.HeroDamage(-(int)(card.healing*heroHealMult));
+        DialogueManagerScript.dialogueOption = (DialogueOption)card.cardType;
+        DialogueManagerScript.instance.TriggerDialogue();
 
         if (CourageMetre.instance == null) return;
         CourageMetre.instance.increaseCourage((int)card.braveryVal);
