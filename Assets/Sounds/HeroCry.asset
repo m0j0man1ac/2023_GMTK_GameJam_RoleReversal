@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aef4b33d6b91047bea19c24237e4f1, type: 3}
+  m_Name: HeroCry
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 85c02e31e1060f54da77323705ae68ae, type: 3}
+  - {fileID: 8300000, guid: 545a196bfd0c09544a22d26fccb2e1ea, type: 3}
+  volMin: 0.5
+  volMax: 0.5
+  pitchMin: 0.8409037
+  pitchMax: 1.1891968
+  playOrder: 2
+  useSemitones: 1
+  semitoneMin: -2
+  semitoneMax: 2

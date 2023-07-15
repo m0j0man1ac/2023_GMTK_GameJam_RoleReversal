@@ -1031,6 +1031,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -383
       objectReference: {fileID: 0}
+    - target: {fileID: 198008790014377540, guid: ec20fc6483aee4b489c128f90e7c684e, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1007879147}
+    - target: {fileID: 198008790014377540, guid: ec20fc6483aee4b489c128f90e7c684e, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2041705369352232383, guid: ec20fc6483aee4b489c128f90e7c684e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1437,8 +1445,8 @@ Canvas:
   m_GameObject: {fileID: 1247062867}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1007879147}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2023,6 +2031,7 @@ GameObject:
   - component: {fileID: 1673496002}
   - component: {fileID: 1673496004}
   - component: {fileID: 1673496005}
+  - component: {fileID: 1673496006}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2189,6 +2198,26 @@ MonoBehaviour:
   sounds:
   - HeroCry1
   - HeroCry2
+--- !u!114 &1673496006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673496001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861082f7041c206429a67f652c001575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeMusic: []
+  sounds:
+  - name: 
+    clip: {fileID: 8300000, guid: 85c02e31e1060f54da77323705ae68ae, type: 3}
+    audioMixGroup: {fileID: 0}
+    volume: 0
+    pitch: 0.1
+    source: {fileID: 0}
 --- !u!1 &1723973860
 GameObject:
   m_ObjectHideFlags: 0
