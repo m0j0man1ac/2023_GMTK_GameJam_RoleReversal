@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using ScriptableObjects;
 
 public class DialogueManagerScript : MonoBehaviour
 {
     public static DialogueManagerScript instance;
+
+    public SoundScripObj heroSFX, villainSFX;
 
     public static DialogueOption dialogueOption;
     public string[] dialogueStrings;
@@ -147,7 +150,8 @@ public class DialogueManagerScript : MonoBehaviour
         foreach (char letter in sentence)
         {
             text.text += letter;
-            AudioManagerScript.instance.PlaySoundRandomPitch(sounds[UnityEngine.Random.Range(0, sounds.Length)], .1f);
+            //AudioManagerScript.instance.PlaySoundRandomPitch(sounds[UnityEngine.Random.Range(0, sounds.Length)], .1f);
+            heroSFX?.Play();
             yield return new WaitForSeconds(1 / lettersPerSecond);
             timer = 0;
         }

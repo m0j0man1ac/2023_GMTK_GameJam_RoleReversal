@@ -671,6 +671,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &550286351 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+  m_PrefabInstance: {fileID: 118926658176891845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &767843065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,17 +1150,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec20fc6483aee4b489c128f90e7c684e, type: 3}
---- !u!114 &1075094379 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5319493219363181161, guid: ec20fc6483aee4b489c128f90e7c684e, type: 3}
-  m_PrefabInstance: {fileID: 1075094378}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3250d498c269e041bb369a78263d63e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1075094380 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1502031806432618044, guid: ec20fc6483aee4b489c128f90e7c684e, type: 3}
@@ -2095,6 +2089,7 @@ Transform:
   - {fileID: 436920368}
   - {fileID: 1143554974}
   - {fileID: 1734636422}
+  - {fileID: 550286351}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2132,6 +2127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 1075094381}
   timer: 0
+  sentences: []
   text: {fileID: 1075094380}
   textS: 
   AttackingDialogues:
@@ -2193,7 +2189,7 @@ MonoBehaviour:
     - The prophecy chose me as the hero, I can understand why.
     - 'My hair flows through the wind like the rivers of time. '
     - Begone.
-  dialogueTrigger: {fileID: 1075094379}
+  dialogueTrigger: {fileID: 0}
   lettersPerSecond: 20
   sounds:
   - HeroCry1
@@ -2503,6 +2499,67 @@ Transform:
   m_Father: {fileID: 1673496003}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &118926658176891845
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1673496003}
+    m_Modifications:
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9994677
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.1847663
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.031550184
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4071930928769445411, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4486020450938163931, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
+      propertyPath: m_Name
+      value: AssigningSounds
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d89ec12e6e80abb488a2744442411de3, type: 3}
 --- !u!1001 &7640035107316424329
 PrefabInstance:
   m_ObjectHideFlags: 0

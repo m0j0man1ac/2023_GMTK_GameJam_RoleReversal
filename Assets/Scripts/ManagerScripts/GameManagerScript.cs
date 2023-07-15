@@ -218,6 +218,7 @@ public class GameManagerScript : MonoBehaviour
         int idx = hand.IndexOf(hoveredCard);
         if (idx == -1) return;
 
+        cardRifleDel.Invoke();
         hoveredCard.GetComponent<SortingGroup>().sortingOrder += 1;
 
         float arc = cardAngleSpacing * (hand.Count - 1);
@@ -276,6 +277,8 @@ public class GameManagerScript : MonoBehaviour
     public float heroHealMult =1f, heroAttackMult=1f;
     public void PlayCard(Card card)
     {
+        cardPlayDel.Invoke();
+
         //do effect
         if (card.effects != null)
         {
@@ -288,6 +291,7 @@ public class GameManagerScript : MonoBehaviour
 
         HealthManagerScript.instance.HeroDamage((int)(card.damage*villainAttackMult));
         HealthManagerScript.instance.VillainDamage(-(int)(card.healing*villainHealMult));
+
         DialogueManagerScript.dialogueOption = (DialogueOption)card.cardType;
         Debug.Log(DialogueManagerScript.dialogueOption + ", " + (DialogueOption)card.cardType);
         DialogueManagerScript.instance.TriggerDialogue();
@@ -312,9 +316,10 @@ public class GameManagerScript : MonoBehaviour
 
     //TURNS
     public delegate void MyVoidDelegate();
-    public MyVoidDelegate cardPickUpDelegate;
-    public MyVoidDelegate cardPutDownDelegate;
-    public MyVoidDelegate cardPlayDelegate;
+    public MyVoidDelegate cardRifleDel;
+    public MyVoidDelegate cardPickUpDel;
+    public MyVoidDelegate cardPutDownDel;
+    public MyVoidDelegate cardPlayDel;
 
     enum TurnState { Shuffle, Hero, Villain, Wait, Animating };
     TurnState currentTurn = TurnState.Shuffle;
@@ -335,9 +340,13 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+    public MyVoidDelegate endTurnDel;
+
     public void EndTurn()
     {
         if (currentTurn != TurnState.Villain) return;
+
+        endTurnDel?.Invoke();
 
         Debug.Log("End Turn");
         EmptyHand();
