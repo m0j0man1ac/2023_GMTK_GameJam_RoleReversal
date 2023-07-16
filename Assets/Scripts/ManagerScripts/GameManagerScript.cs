@@ -87,11 +87,15 @@ public class GameManagerScript : MonoBehaviour
         yield return null;
     }
 
+    public MyVoidDelegate cardDealDel;
+
     public void DealCard()
     {
         Debug.Log("Deal Card");
-        if (deck.Count <= 0) ShuffleDiscard();
         if (hand.Count >= handSize) return;
+        if (deck.Count <= 0) ShuffleDiscard();
+
+        cardDealDel?.Invoke();
 
         Transform dealtCard = GameObject.Instantiate(cardPrefab, deckT.position, Quaternion.Euler(0,0,90)).transform;
 
@@ -123,8 +127,8 @@ public class GameManagerScript : MonoBehaviour
     public float cardAngleSpacing = 20;
     public float cardDistanceFromOrigin = 10;
 
-    Vector3 cardScale = new Vector3(3, 3, 1);
-    public Vector3 zoomedCardScale = new Vector3(4,4,1);
+    Vector3 cardScale = Vector3.one;
+    Vector3 zoomedCardScale = Vector3.one*1.3f;
 
     int handCount;
     float arc;

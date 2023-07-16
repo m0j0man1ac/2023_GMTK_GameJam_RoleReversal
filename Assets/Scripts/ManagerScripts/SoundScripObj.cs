@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace ScriptableObjects 
 {
@@ -15,6 +16,7 @@ public class SoundScripObj : ScriptableObject
 
         #region config
 
+        public AudioMixerGroup mixGroup;
         public AudioClip[] clips;
         [Range(0f,1f)] public float volMin = .5f, volMax = .5f;
         [Range(.1f,3f)] public float pitchMin = 1f, pitchMax = 1f;
@@ -106,6 +108,7 @@ public class SoundScripObj : ScriptableObject
             }
 
             //set config
+            source.outputAudioMixerGroup = mixGroup;
             source.clip = GetClip();
             source.volume = Random.Range(volMin, volMax);
             source.pitch = useSemitones
@@ -121,6 +124,11 @@ public class SoundScripObj : ScriptableObject
 
 
             return source;
+        }
+
+        private void OnValidate()
+        {
+            SyncPitchAndSemitones();
         }
     }
 

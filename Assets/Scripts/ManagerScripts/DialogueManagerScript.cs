@@ -10,6 +10,7 @@ public class DialogueManagerScript : MonoBehaviour
 
     public SoundScripObj heroSFX, villainSFX;
 
+    public Dialogue[] dialogues;
     public static DialogueOption dialogueOption;
     public string[] dialogueStrings;
 
@@ -106,7 +107,7 @@ public class DialogueManagerScript : MonoBehaviour
         {
             text.text += letter;
             //AudioManagerScript.instance.PlaySoundRandomPitch(sounds[UnityEngine.Random.Range(0, sounds.Length)], .1f);
-            heroSFX?.Play();
+            villainSFX?.Play();
             yield return new WaitForSeconds(1 / lettersPerSecond);
             timer = 0;
         }
