@@ -294,7 +294,7 @@ public class GameManagerScript : MonoBehaviour
 
         DialogueManagerScript.dialogueOption = (DialogueOption)card.cardType;
         Debug.Log(DialogueManagerScript.dialogueOption + ", " + (DialogueOption)card.cardType);
-        DialogueManagerScript.instance.TriggerDialogue();
+        DialogueManagerScript.instance.TriggerDialogue((DialogueOption)card.cardType);
 
         if (CourageMetre.instance == null) return;
         CourageMetre.instance.increaseCourage((int)card.braveryVal);
@@ -307,7 +307,7 @@ public class GameManagerScript : MonoBehaviour
         HealthManagerScript.instance.VillainDamage((int)(card.damage*heroAttackMult));
         HealthManagerScript.instance.HeroDamage(-(int)(card.healing*heroHealMult));
         DialogueManagerScript.dialogueOption = (DialogueOption)card.cardType;
-        DialogueManagerScript.instance.TriggerDialogue();
+        //DialogueManagerScript.instance.TriggerDialogue();
 
         if (CourageMetre.instance == null) return;
         CourageMetre.instance.increaseCourage((int)card.braveryVal);
