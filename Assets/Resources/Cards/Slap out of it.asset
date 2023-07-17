@@ -17,8 +17,10 @@ MonoBehaviour:
   artIcon: {fileID: 0}
   desription: Stops hero's next attack
   energyCost: 0
+  dialougeGroup: {fileID: 0}
   dramaVal: 0
   braveryVal: -20
   damage: 1
   healing: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: b3a4774da7f1b5149b6956b5214a96c2, type: 2}

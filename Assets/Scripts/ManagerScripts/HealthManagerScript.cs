@@ -8,6 +8,8 @@ public class HealthManagerScript : MonoBehaviour
 {
     public static HealthManagerScript instance;
 
+    public Transform heroHitPos, villainHitPos;
+
     public int VillainMaxHealth = 999, villainHealth;
     public int HeroMaxHealth = 60, heroHealth;
 
@@ -36,6 +38,11 @@ public class HealthManagerScript : MonoBehaviour
 
     public void HeroDamage(int value)
     {
+        value = (int)(value*GameManagerScript.instance.villainAttackMult);
+
+        HeroAnimation.instance?.Hit();
+        PopUpText.instance.PopUp(heroHitPos.position, value.ToString());
+
         heroHealth -= value;
         UpdateHealthUI();
     }

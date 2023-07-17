@@ -21,6 +21,7 @@ public class DialogueManagerScript : MonoBehaviour
     private string[] sentences;
     public TMP_Text text;
     public string textS;
+
     public Dialogue Attacking;
     public Dialogue Debuff;
     public Dialogue Mono;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "DamageMult", menuName = "Card Effect/Damage Multiplier")]
 public class DamageMultEffect : CardEffect
 {
     public float damageMult = 2;
@@ -14,7 +14,7 @@ public class DamageMultEffect : CardEffect
         GameManagerScript.instance.villainAttackMult = damageMult;
     }
 
-    public override string EffectDescription()
+    public override string EffectDescription(Card card)
     {
         return string.Format("Increase damage by {0} times", damageMult);
     }

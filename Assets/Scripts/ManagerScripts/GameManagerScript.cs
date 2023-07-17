@@ -96,7 +96,7 @@ public class GameManagerScript : MonoBehaviour
     public void DealCard()
     {
         Debug.Log("Deal Card");
-        if (hand.Count >= handSize) return;
+        //if (hand.Count >= handSize) return;
         if (deck.Count <= 0) ShuffleDiscard();
 
         cardDealDel?.Invoke();
@@ -271,23 +271,33 @@ public class GameManagerScript : MonoBehaviour
         {
             hand.Remove(heldCard);
             Card card = heldCard.GetComponent<CardDisplay>().setCard;
-            discard.Add(card);
             PlayCard(card);
 
             var playedCard = heldCard;
 
             playedCard.DOShakeRotation(cardAnimSpeed);
             playedCard.DOShakePosition(cardAnimSpeed/2).SetLoops(2, LoopType.Yoyo);
-            playedCard.DOShakeScale(cardAnimSpeed)            
-                .OnComplete(() => {GameObject.Destroy(playedCard.gameObject, .5f); });
-        }
-        else
-        {
-            UpdateHandPositions();
-            //ResetCardPositionInHand(hand.IndexOf(heldCard));
+            playedCard.DOShakeScale(cardAnimSpeed)
+                .OnComplete(() => DiscardCard(playedCard)).SetDelay(cardAnimSpeed * .5f);
         }
 
         heldCard = null;
+        UpdateHandPositions();
+    }
+
+    public void DiscardCard(Transform card2Discard)
+    {
+        card2Discard.DOKill();
+        card2Discard.DOMove(discardT.position, cardAnimSpeed).SetEase(Ease.InSine);
+        card2Discard.DOScale(Vector3.zero, cardAnimSpeed).SetEase(Ease.InSine);
+        card2Discard.DORotate(new Vector3(0,0,-90),cardAnimSpeed).SetEase(Ease.InSine)
+            .OnComplete(() => 
+            {
+                discard.Add(card2Discard.GetComponent<CardDisplay>().setCard);
+                GameObject.Destroy(card2Discard.gameObject, .1f);
+            });
+
+
     }
 
     public float villainHealMult =1f, villainAttackMult =1f;
@@ -306,23 +316,23 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
-        HealthManagerScript.instance.HeroDamage((int)(card.damage*villainAttackMult));
-        HealthManagerScript.instance.VillainDamage(-(int)(card.healing*villainHealMult));
+        //HealthManagerScript.instance.HeroDamage((int)(card.damage*villainAttackMult));
+        //HealthManagerScript.instance.VillainDamage(-(int)(card.healing*villainHealMult));
 
         DialogueManagerScript.dialogueOption = (DialogueOption)card.cardType;
         Debug.Log(DialogueManagerScript.dialogueOption + ", " + (DialogueOption)card.cardType);
         DialogueManagerScript.instance.TriggerDialogue((DialogueOption)card.cardType);
 
-        if (CourageMetre.instance == null) return;
-        CourageMetre.instance.increaseCourage((int)card.braveryVal);
-        DramaMetre.instance.increaseDrama((int)card.dramaVal);
+        //if (CourageMetre.instance == null) return;
+        //CourageMetre.instance.increaseCourage((int)card.braveryVal);
+        //DramaMetre.instance.increaseDrama((int)card.dramaVal);
     }
 
     public void PlayHeroMove(Card card)
     {
         Debug.Log("hero uses " + card.name);
         HealthManagerScript.instance.VillainDamage((int)(card.damage*heroAttackMult));
-        HealthManagerScript.instance.HeroDamage(-(int)(card.healing*heroHealMult));
+        //HealthManagerScript.instance.HeroDamage(-(int)(card.healing*heroHealMult));
         DialogueManagerScript.dialogueOption = (DialogueOption)card.cardType;
         //DialogueManagerScript.instance.TriggerDialogue();
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Linq;
 using TMPro;
 
 public class CardDisplay : MonoBehaviour
@@ -26,7 +27,15 @@ public class CardDisplay : MonoBehaviour
 
         cardName.text = card.name;
         cardEnergy.text = card.energyCost.ToString();
-        description.text = card.desription;
+
+        var descriptionsString = card.desription;
+        foreach (CardEffect effect in card.effects ?? Enumerable.Empty<CardEffect>())
+        {
+            if (!string.Equals(descriptionsString, "")) descriptionsString += "\n";
+            descriptionsString += effect.EffectDescription(card);
+        }
+
+        description.text = descriptionsString;
         if(card.artIcon!=null) spriteR.sprite = card.artIcon;
     }
 }

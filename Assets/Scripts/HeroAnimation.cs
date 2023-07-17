@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using System.Threading.Tasks;
+using DG.Tweening;
 
 public class HeroAnimation : MonoBehaviour
 {
+    public static HeroAnimation instance;
+
     #region config
     public Animator _anim;
 
@@ -42,6 +45,8 @@ public class HeroAnimation : MonoBehaviour
     #region onStart
     private void Awake()
     {
+        instance = this;
+
         _anim = GetComponent<Animator>();
 
         defaultMat = GetComponent<SpriteRenderer>().sharedMaterial;
@@ -93,7 +98,10 @@ public class HeroAnimation : MonoBehaviour
 
     public async void Hit()
     {
+        GetComponent<AnimationSounds>().PlaySound(1);
         _anim.CrossFade(currentAnims.hit, 0, 0);
+        transform.DOShakePosition(hitTime * 2 * .3f, .4f, 10, 0).SetLoops(3).SetEase(Ease.OutSine);
+        //transform.do
 
         GetComponent<SpriteRenderer>().material = hitMat;
         await Task.Delay((int)(hitTime*1000));

@@ -17,8 +17,10 @@ MonoBehaviour:
   artIcon: {fileID: 0}
   desription: Explain the difference in power
   energyCost: 0
+  dialougeGroup: {fileID: 0}
   dramaVal: 10
   braveryVal: 5
-  damage: -5
+  damage: 0
   healing: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: a1aed263dfddc624e9b56b3663180bd5, type: 2}

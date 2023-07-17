@@ -6,5 +6,5 @@ public abstract class CardEffect : ScriptableObject
 {
     public abstract void DoEffect(Card card);
 
-    public abstract string EffectDescription();
+    public abstract string EffectDescription(Card card);
 }

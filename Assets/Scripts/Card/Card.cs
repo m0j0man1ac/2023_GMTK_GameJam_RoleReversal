@@ -24,6 +24,7 @@ public class Card : ScriptableObject
     public string desription;
     public int energyCost;
 
+    public DialougeGroup dialougeGroup;
     //public string cardType;
 
     public float dramaVal;
