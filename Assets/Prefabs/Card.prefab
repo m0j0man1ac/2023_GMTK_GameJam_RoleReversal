@@ -646,6 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setCard: {fileID: 0}
   cardName: {fileID: 7566550566509208881}
+  cardEnergy: {fileID: 4680590296862115142}
   description: {fileID: 7809296270304643837}
   spriteR: {fileID: 9079089109735064504}
 --- !u!210 &5038818303524757711
@@ -1116,7 +1117,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Time: 0.3
+  m_Time: 0.1
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3

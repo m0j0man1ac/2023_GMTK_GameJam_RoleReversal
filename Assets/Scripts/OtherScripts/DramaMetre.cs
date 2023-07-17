@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using DG.Tweening;
+
 public class DramaMetre : MonoBehaviour
 {
     public static DramaMetre instance;
@@ -33,19 +35,22 @@ public class DramaMetre : MonoBehaviour
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
+    private float animSpeed = .4f;
+
     public void increaseDrama (int num)
     {
-        currentDrama += num;
+        this.transform.DOJump(transform.position, .5f, 1, animSpeed).SetEase(Ease.OutElastic);
 
+        currentDrama += num;
         setDrama(currentDrama);
         
     }
 
     public void decreaseDrama (int num)
     {
+        this.transform.DOShakePosition(animSpeed*.5f, .5f).SetLoops(2).SetEase(Ease.OutElastic);
+
         currentDrama -= num;
-
-
         setDrama(currentDrama);
     }
 

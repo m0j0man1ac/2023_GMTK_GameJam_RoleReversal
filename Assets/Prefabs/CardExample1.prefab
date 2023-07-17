@@ -396,6 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setCard: {fileID: 0}
   cardName: {fileID: 6690134292906209792}
+  cardEnergy: {fileID: 0}
   description: {fileID: 1339034797714992575}
   spriteR: {fileID: 4497362288823914078}
 --- !u!210 &8948156332745987589

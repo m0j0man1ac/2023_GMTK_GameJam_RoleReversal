@@ -63,8 +63,12 @@ public class GameManagerScript : MonoBehaviour
             PutDownCard();
         }
 
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
+        {
+            heldCard = null;
             UpdateHandPositions();
+
+        }
 
         if(heldCard!=null)
         {
@@ -149,6 +153,7 @@ public class GameManagerScript : MonoBehaviour
             rad *= Mathf.Deg2Rad;
             Vector3 dir = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
+            DOTween.Kill(hand[i]);
             hand[i].DORotate(new Vector3(0, 0, arcStart + (cardAngleSpacing * i)), cardAnimSpeed).SetEase(Ease.OutQuad);
             hand[i].DOMove(handOrigin.position + dir * cardDistanceFromOrigin, cardAnimSpeed).SetEase(Ease.OutQuad);
 
@@ -170,6 +175,7 @@ public class GameManagerScript : MonoBehaviour
         rad *= Mathf.Deg2Rad;
         Vector3 dir = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
+        DOTween.Kill(hand[i]);
         hand[i].DORotate(new Vector3(0, 0, arcStart + (cardAngleSpacing * i)), cardAnimSpeed).SetEase(Ease.OutQuad);
         hand[i].DOMove(handOrigin.position + dir * cardDistanceFromOrigin, cardAnimSpeed).SetEase(Ease.OutQuad);
 
@@ -231,6 +237,7 @@ public class GameManagerScript : MonoBehaviour
         rad *= Mathf.Deg2Rad;
         Vector3 dir = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
+        DOTween.Kill(hand[idx]);
         hand[idx].DORotate(Vector3.zero, cardAnimSpeed/2).SetEase(Ease.OutQuad);
         hand[idx].DOMove(handOrigin.position + dir * cardDistanceFromOrigin*1.1f, cardAnimSpeed/2).SetEase(Ease.OutQuad);
     }
@@ -266,7 +273,13 @@ public class GameManagerScript : MonoBehaviour
             Card card = heldCard.GetComponent<CardDisplay>().setCard;
             discard.Add(card);
             PlayCard(card);
-            GameObject.Destroy(heldCard.gameObject, .5f);
+
+            var playedCard = heldCard;
+
+            playedCard.DOShakeRotation(cardAnimSpeed);
+            playedCard.DOShakePosition(cardAnimSpeed/2).SetLoops(2, LoopType.Yoyo);
+            playedCard.DOShakeScale(cardAnimSpeed)            
+                .OnComplete(() => {GameObject.Destroy(playedCard.gameObject, .5f); });
         }
         else
         {
@@ -338,9 +351,11 @@ public class GameManagerScript : MonoBehaviour
         foreach(Transform card in tempHand)
         {
             discard.Add(card.GetComponent<CardDisplay>().setCard);
+
+            DOTween.Kill(card);
             card.DOMove(discardT.position, cardAnimSpeed);
-            card.DORotate(new Vector3(0, 0, -90), cardAnimSpeed);
-            GameObject.Destroy(card.gameObject);
+            card.DORotate(new Vector3(0, 0, -90), cardAnimSpeed)
+                .OnComplete(() => { GameObject.Destroy(card.gameObject, cardAnimSpeed); }); 
         }
     }
 

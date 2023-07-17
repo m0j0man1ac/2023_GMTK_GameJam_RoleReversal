@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90aef4b33d6b91047bea19c24237e4f1, type: 3}
   m_Name: CardDeal
   m_EditorClassIdentifier: 
+  mixGroup: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: 38ba2db94c439a94e8e4ad3d6ae019bb, type: 3}
-  volMin: 0.121
-  volMax: 0.357
-  pitchMin: 1.05946
-  pitchMax: 1.1891968
+  volMin: 0.034
+  volMax: 0.101
+  pitchMin: 0.7937097
+  pitchMax: 0.89090383
   playOrder: 0
   useSemitones: 1
-  semitoneMin: 1
-  semitoneMax: 3
+  semitoneMin: -4
+  semitoneMax: -2

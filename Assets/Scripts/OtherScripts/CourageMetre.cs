@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using DG.Tweening;
+
 public class CourageMetre : MonoBehaviour
 {
     public static CourageMetre instance;
@@ -33,8 +35,11 @@ public class CourageMetre : MonoBehaviour
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
+    private float animSpeed = .4f;
+
     public void increaseCourage (int num)
     {
+        this.transform.DOJump(transform.position, .5f, 1, animSpeed).SetEase(Ease.OutElastic);
         currentCourage += num;
 
         setCourage(currentCourage);
@@ -43,6 +48,7 @@ public class CourageMetre : MonoBehaviour
 
     public void decreaseCourage (int num)
     {
+        this.transform.DOShakePosition(animSpeed * .5f, .5f).SetLoops(2).SetEase(Ease.OutElastic);
         currentCourage -= num;
 
         setCourage(currentCourage);

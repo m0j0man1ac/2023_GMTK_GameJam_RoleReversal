@@ -9,6 +9,7 @@ public class CardDisplay : MonoBehaviour
     public Card setCard;
 
     public TMP_Text cardName;
+    public TMP_Text cardEnergy;
     public TMP_Text description;
     public SpriteRenderer spriteR;
 
@@ -22,6 +23,7 @@ public class CardDisplay : MonoBehaviour
     public void CardUpdate(Card card)
     {
         cardName.text = card.name;
+        cardEnergy.text = card.energyCost.ToString();
         description.text = card.desription;
         if(card.artIcon!=null) spriteR.sprite = card.artIcon;
     }

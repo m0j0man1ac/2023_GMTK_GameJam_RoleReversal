@@ -91,7 +91,7 @@ public class SoundScripObj : ScriptableObject
 
         public AudioSource Play(AudioSource audioSourceParam = null)
         {
-            Debug.Log("Trying to play sound: " + this);
+            //Debug.Log("Trying to play sound: " + this);
 
             //null check error
             if(clips.Length == 0)
