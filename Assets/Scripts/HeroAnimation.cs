@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Threading.Tasks;
+
 public class HeroAnimation : MonoBehaviour
 {
     #region config
@@ -42,6 +44,8 @@ public class HeroAnimation : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
 
+        defaultMat = GetComponent<SpriteRenderer>().sharedMaterial;
+
         chadAnims = new HeroStateAnims(HeroState.Chad);
         midAnims = new HeroStateAnims(HeroState.Mid);
         weakAnims = new HeroStateAnims(HeroState.Weak);
@@ -74,6 +78,26 @@ public class HeroAnimation : MonoBehaviour
     public static int GetAnimHash(string name)
     {
         return Animator.StringToHash(name);
+    }
+
+    public void AttackPrep()
+    {
+        _anim.CrossFade(currentAnims.attackPrep,0,0);
+    }
+
+    #region temp
+    public float hitTime = .4f;
+    Material defaultMat;
+    public Material hitMat;
+    #endregion
+
+    public async void Hit()
+    {
+        _anim.CrossFade(currentAnims.hit, 0, 0);
+
+        GetComponent<SpriteRenderer>().material = hitMat;
+        await Task.Delay((int)(hitTime*1000));
+        GetComponent<SpriteRenderer>().material = defaultMat;
     }
 
     private void OnValidate()

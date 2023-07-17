@@ -302,7 +302,7 @@ public class GameManagerScript : MonoBehaviour
             foreach (CardEffect effect in card.effects)
             {
                 Debug.Log("doing an effect");
-                effect.DoEffect();
+                effect.DoEffect(card);
             }
         }
 

@@ -22,6 +22,8 @@ public class CardDisplay : MonoBehaviour
 
     public void CardUpdate(Card card)
     {
+        setCard = card;
+
         cardName.text = card.name;
         cardEnergy.text = card.energyCost.ToString();
         description.text = card.desription;
