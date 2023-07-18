@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48542294865bc2d42b933857106ceff5, type: 3}
+  m_Name: Debuff
+  m_EditorClassIdentifier: 
+  dialouges:
+  - "Now I bring out the strats\r"
+  - "Let the game begin\r"
+  - "Don't lose your head!\r"
+  - "Get a load of this!\r"
+  _file: {fileID: 4900000, guid: 94a0b41a2e0d1eb41b7c7237037351a8, type: 3}

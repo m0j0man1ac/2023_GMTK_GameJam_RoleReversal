@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48542294865bc2d42b933857106ceff5, type: 3}
+  m_Name: Monolouge
+  m_EditorClassIdentifier: 
+  dialouges:
+  - "Let me tell you about this time way back when, I was a little boy, no, a young
+    man, no, a child. My mother once -\r"
+  - "You have spunk, follow me hero, if we join together we could change the destiny
+    of the world together, your prophecy is nothing but a scam.\r"
+  - "Now be prepared for my next moves, I have been training all my life to one day
+    match you, it is time for me to show you how I can ruin you in a matter of seconds.\r"
+  - "Please go easy on me, hero you are so strong this is an unfair fight, fight
+    me on equal terms cheater.\r"
+  _file: {fileID: 4900000, guid: b53578a881aac5843a43c1a9b87d2744, type: 3}
