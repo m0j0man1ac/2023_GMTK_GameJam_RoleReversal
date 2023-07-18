@@ -33,8 +33,9 @@ public class HealthManagerScript : MonoBehaviour
     public void VillainDamage(int value)
     {
         villainHealth -= value;
-        Mathf.Clamp(villainHealth, 0, VillainMaxHealth);
+        villainHealth = Mathf.Clamp(villainHealth, 0, VillainMaxHealth);
         UpdateHealthUI();
+        if (villainHealth <= 0) GameManagerScript.instance.EndGame();
     }
 
     public void HeroDamage(int value)
@@ -48,7 +49,7 @@ public class HealthManagerScript : MonoBehaviour
         Debug.Log("hellloooooo????????");
         heroHealth = Mathf.Clamp(heroHealth, 0, HeroMaxHealth);
         UpdateHealthUI();
-        if (heroHealth == 0) GameManagerScript.instance.EndGame();
+        if (heroHealth <= 0) GameManagerScript.instance.EndGame();
     }
 
     public void UpdateHealthUI()

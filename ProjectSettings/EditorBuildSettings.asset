@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: 79f3f3e4856ffa44c929dbf07081ffe3
   - enabled: 1
-    path: Assets/Scenes/RyanCardSystemTest.unity
-    guid: b392792aebf566c4eaf888da0fcb82a0
+    path: Assets/Scenes/RyanAllSystemsGOTestSceneFinal_1.unity
+    guid: 32d504285e3bcd74a9b8b5a085477428
   - enabled: 1
     path: Assets/Scenes/End Scene.unity
     guid: 87bf70bdc14d33f45a81f85e63e95d52

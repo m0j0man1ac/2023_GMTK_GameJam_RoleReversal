@@ -6,13 +6,18 @@ public class GameStateSaver : MonoBehaviour
 {
     public static GameStateSaver instance;
 
-    public int heroHealth, villainHealth;
-    public int courageVal, dramaVal;
+    public int heroHealth = 0, villainHealth = 0;
+    public int courageVal = 0, dramaVal = 0;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-        instance = this;
+        if (instance == null)
+        {
+            DontDestroyOnLoad(this);
+            instance = this;
+        }
+        else
+            Destroy(this.gameObject);
     }
 
     public void SaveValues(int heroH, int villainH, int courage, int drama)
