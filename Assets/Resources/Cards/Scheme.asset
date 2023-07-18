@@ -18,9 +18,10 @@ MonoBehaviour:
   desription: 
   energyCost: 0
   dialougeGroup: {fileID: 0}
-  dramaVal: 0
+  dramaVal: 5
   braveryVal: 0
   damage: 0
   healing: 0
   effects:
   - {fileID: 11400000, guid: ddbbcfc54a9c2bc4a98005f0797756f6, type: 2}
+  - {fileID: 11400000, guid: a1aed263dfddc624e9b56b3663180bd5, type: 2}

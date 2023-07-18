@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 using DG.Tweening;
+using System.Threading;
+using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -50,15 +53,34 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (currentTurn)
+        {
+            case TurnState.Villain:
+                PlayVillainTurnStuff();
+                break;
+        }
+
+       if(currentTurn != TurnState.Villain)
+       {
+            if (heldCard != null)
+            {
+                heldCard = null;
+                UpdateHandPositions();
+            }   
+       }
+    }
+
+    public void PlayVillainTurnStuff()
+    {
         CheckMousedCards();
 
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
             PickUpCard();
             //StartCoroutine(DealHand());
         }
 
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             PutDownCard();
         }
@@ -70,10 +92,10 @@ public class GameManagerScript : MonoBehaviour
 
         }
 
-        if(heldCard!=null)
+        if (heldCard != null)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            heldCard.position = Vector2.Lerp(heldCard.position, mousePos, Time.deltaTime*20);
+            heldCard.position = Vector2.Lerp(heldCard.position, mousePos, Time.deltaTime * 20);
         }
     }
 
@@ -401,5 +423,23 @@ public class GameManagerScript : MonoBehaviour
         Debug.Log("Dealing turn");
         StartCoroutine(DealHand());
         //currentTurn = TurnState.Villain;
+    }
+
+    float endGameDelaySeconds = 2f;
+
+    public async void EndGame()
+    {
+        currentTurn = TurnState.Wait;
+        await Task.Delay((int)(endGameDelaySeconds * 1000));
+        Debug.Log("End Game");
+
+        var hMS = HealthManagerScript.instance;
+        var cBar = Bars.courageInstance;
+        var dBar = Bars.dramaInstance;
+
+        GameStateSaver.instance
+            .SaveValues(hMS.heroHealth,hMS.villainHealth, cBar.currentValue, dBar.currentValue);
+
+        SceneManager.LoadScene("End Scene", LoadSceneMode.Single);
     }
 }

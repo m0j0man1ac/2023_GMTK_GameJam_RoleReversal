@@ -64,6 +64,36 @@ public class HeroAnimation : MonoBehaviour
     }
     #endregion
 
+    public void EvaluateState()
+    {
+        Debug.Log("evaluating courage");
+        var courageVal = Bars.courageInstance.currentValue;
+
+        if (courageVal > 66) ChangeState(HeroState.Chad);
+        else if (courageVal > 33) ChangeState(HeroState.Mid);
+        else ChangeState(HeroState.Weak);
+
+        UpdateActiveAnims();
+    }
+
+    public void ChangeState(HeroState newState)
+    {
+        if (heroState == newState) return;
+
+        heroState = newState;
+
+        switch (heroState)
+        {
+            case HeroState.Chad:
+                GetComponent<AnimationSounds>().PlaySound(2);
+                break;
+            case HeroState.Mid:
+                break;
+            case HeroState.Weak:
+                break;
+        }
+    }
+
     public void UpdateActiveAnims()
     {
        switch (heroState) 
@@ -78,6 +108,8 @@ public class HeroAnimation : MonoBehaviour
                 currentAnims = weakAnims;
                 break;
        }
+
+       _anim.CrossFade(currentAnims.idle, 0, 0);
     }
 
     public static int GetAnimHash(string name)
@@ -108,9 +140,9 @@ public class HeroAnimation : MonoBehaviour
         GetComponent<SpriteRenderer>().material = defaultMat;
     }
 
-    private void OnValidate()
-    {
-        UpdateActiveAnims();
-        _anim.CrossFade(currentAnims.idle, 0, 0);
-    }
+    //private void OnValidate()
+    //{
+    //    UpdateActiveAnims();
+    //    _anim.CrossFade(currentAnims.idle, 0, 0);
+    //}
 }

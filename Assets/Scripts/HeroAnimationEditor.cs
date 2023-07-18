@@ -19,5 +19,7 @@ public class HeroAnimationEditor : Editor
             if (GUILayout.Button("Attack Prep")) myScript.AttackPrep();
             if (GUILayout.Button("Hit")) myScript.Hit();
         GUILayout.EndHorizontal();
+
+        if (GUILayout.Button("Update Animation")) myScript.UpdateActiveAnims();
     }
 }

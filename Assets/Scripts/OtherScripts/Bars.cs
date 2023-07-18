@@ -58,6 +58,8 @@ public class Bars : MonoBehaviour
         
         currentValue += num;
         setValue(currentValue);
+
+        HeroAnimation.instance.EvaluateState();
     }
 }
 

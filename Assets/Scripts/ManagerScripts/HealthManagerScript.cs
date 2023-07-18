@@ -33,6 +33,7 @@ public class HealthManagerScript : MonoBehaviour
     public void VillainDamage(int value)
     {
         villainHealth -= value;
+        Mathf.Clamp(villainHealth, 0, VillainMaxHealth);
         UpdateHealthUI();
     }
 
@@ -44,7 +45,10 @@ public class HealthManagerScript : MonoBehaviour
         PopUpText.instance.PopUp(heroHitPos.position, value.ToString());
 
         heroHealth -= value;
+        Debug.Log("hellloooooo????????");
+        heroHealth = Mathf.Clamp(heroHealth, 0, HeroMaxHealth);
         UpdateHealthUI();
+        if (heroHealth == 0) GameManagerScript.instance.EndGame();
     }
 
     public void UpdateHealthUI()
