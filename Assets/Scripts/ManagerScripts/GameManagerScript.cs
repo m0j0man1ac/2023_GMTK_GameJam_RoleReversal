@@ -28,7 +28,6 @@ public class GameManagerScript : MonoBehaviour
 
     public GameObject attackPrefab;
     public Transform heroTransform;
-    public Transform transform;
 
     // Start is called before the first frame update
     void Awake()
@@ -53,6 +52,8 @@ public class GameManagerScript : MonoBehaviour
         StartCoroutine(DealHand());
 
         currentTurn = TurnState.Villain;
+
+        heroTransform = FindAnyObjectByType<HeroAnimation>().gameObject.transform;
     }
 
     // Update is called once per frame
@@ -114,6 +115,7 @@ public class GameManagerScript : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenDealtCards);
         }
 
+        EnergyManager.instance.MaxEnergy();
         currentTurn = TurnState.Villain;
         yield return null;
     }
@@ -294,10 +296,13 @@ public class GameManagerScript : MonoBehaviour
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.mousePosition.y > Screen.height / 3)
+        Card card = heldCard.GetComponent<CardDisplay>().setCard;
+
+        if (Input.mousePosition.y > Screen.height / 3
+            && card.energyCost <= EnergyManager.instance.energy)
         {
             hand.Remove(heldCard);
-            Card card = heldCard.GetComponent<CardDisplay>().setCard;
+            EnergyManager.instance.ChangeEnergy(-card.energyCost);
             PlayCard(card);
 
             var playedCard = heldCard;
@@ -332,16 +337,17 @@ public class GameManagerScript : MonoBehaviour
     public void PlayCard(Card card)
     {
         cardPlayDel.Invoke();
-        Instantiate(attackPrefab, GameObject.Find("Hero").transform);
-        attackAim = FindAnyObjectByType<AttackAim>();
+
         //do effect
         if (card.effects != null)
         {
+            Instantiate(attackPrefab, heroTransform);
+            attackAim = FindAnyObjectByType<AttackAim>();
             foreach (CardEffect effect in card.effects)
             {
                 Debug.Log("doing an effect");
-                //effect.DoEffect(card);
-                attackAim.PreAttack(card);
+                effect.DoEffect(card);
+                attackAim.Attack(card);
             }
         }
 
@@ -405,6 +411,7 @@ public class GameManagerScript : MonoBehaviour
     public void EndTurn()
     {
         if (currentTurn != TurnState.Villain) return;
+        EnergyManager.instance.ClearEnergy();
 
         endTurnDel?.Invoke();
 

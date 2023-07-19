@@ -39,6 +39,16 @@ public class EnergyManager : MonoBehaviour
         }
     }
 
+    public void ClearEnergy()
+    {
+        ChangeEnergy(-energy);
+    }
+
+    public void MaxEnergy()
+    {
+        ChangeEnergy(-energy + maxEnergy);
+    }
+
     private void OnValidate()
     {
         UpdateEnergy();

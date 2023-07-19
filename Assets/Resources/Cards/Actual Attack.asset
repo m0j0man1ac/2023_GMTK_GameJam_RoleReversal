@@ -16,7 +16,7 @@ MonoBehaviour:
   cardType: 0
   artIcon: {fileID: 21300000, guid: f3212fd77f9a9fc439c0c2fad1f43b0f, type: 3}
   desription: Attack with your serious strength
-  energyCost: 0
+  energyCost: 2
   dialougeGroup: {fileID: 11400000, guid: d7d1aca43c79111449d06e95c3d2187f, type: 2}
   dramaVal: 0
   braveryVal: 0
