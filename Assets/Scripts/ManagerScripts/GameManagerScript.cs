@@ -28,6 +28,7 @@ public class GameManagerScript : MonoBehaviour
 
     public GameObject attackPrefab;
     public Transform heroTransform;
+    public Transform transform;
 
     // Start is called before the first frame update
     void Awake()
@@ -52,8 +53,6 @@ public class GameManagerScript : MonoBehaviour
         StartCoroutine(DealHand());
 
         currentTurn = TurnState.Villain;
-
-        heroTransform = FindAnyObjectByType<HeroAnimation>().gameObject.transform;
     }
 
     // Update is called once per frame
@@ -337,16 +336,15 @@ public class GameManagerScript : MonoBehaviour
     public void PlayCard(Card card)
     {
         cardPlayDel.Invoke();
-
+        Instantiate(attackPrefab, GameObject.Find("Hero").transform);
+        attackAim = FindAnyObjectByType<AttackAim>();
         //do effect
         if (card.effects != null)
         {
-            Instantiate(attackPrefab, heroTransform);
-            attackAim = FindAnyObjectByType<AttackAim>();
             foreach (CardEffect effect in card.effects)
             {
                 Debug.Log("doing an effect");
-                effect.DoEffect(card);
+                //effect.DoEffect(card);
                 attackAim.Attack(card);
             }
         }
