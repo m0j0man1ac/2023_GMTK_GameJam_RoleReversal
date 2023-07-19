@@ -13,8 +13,8 @@ public class CourageChange : CardEffect
     public override string EffectDescription(Card card)
     {
         if(card.braveryVal >0)
-            return string.Format("Increase Drama by {0}", card.braveryVal);
+            return string.Format("Increase Courage by {0}", card.braveryVal);
         else
-            return string.Format("Decrease Drama by {0}", Mathf.Abs(card.braveryVal));
+            return string.Format("Decrease Courage by {0}", Mathf.Abs(card.braveryVal));
     }
 }

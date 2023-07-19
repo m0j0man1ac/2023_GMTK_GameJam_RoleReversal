@@ -15,11 +15,11 @@ MonoBehaviour:
   mixGroup: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: 38ba2db94c439a94e8e4ad3d6ae019bb, type: 3}
-  volMin: 0.034
-  volMax: 0.101
-  pitchMin: 0.7937097
-  pitchMax: 0.89090383
+  volMin: 0.379
+  volMax: 0.562
+  pitchMin: 1.3348206
+  pitchMax: 1.5873644
   playOrder: 0
   useSemitones: 1
-  semitoneMin: -4
-  semitoneMax: -2
+  semitoneMin: 5
+  semitoneMax: 8
