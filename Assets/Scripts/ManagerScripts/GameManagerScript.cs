@@ -13,6 +13,7 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript instance;
+    public static AttackAim attackAim;
 
     public int handSize = 5;
 
@@ -24,6 +25,9 @@ public class GameManagerScript : MonoBehaviour
     public List<Transform> hand = new List<Transform>();
 
     public GameObject cardPrefab;
+
+    public GameObject attackPrefab;
+    public Transform heroTransform;
 
     // Start is called before the first frame update
     void Awake()
@@ -48,6 +52,8 @@ public class GameManagerScript : MonoBehaviour
         StartCoroutine(DealHand());
 
         currentTurn = TurnState.Villain;
+
+        heroTransform = FindAnyObjectByType<HeroAnimation>().gameObject.transform;
     }
 
     // Update is called once per frame
@@ -331,10 +337,13 @@ public class GameManagerScript : MonoBehaviour
         //do effect
         if (card.effects != null)
         {
+            Instantiate(attackPrefab, heroTransform);
+            attackAim = FindAnyObjectByType<AttackAim>();
             foreach (CardEffect effect in card.effects)
             {
                 Debug.Log("doing an effect");
-                effect.DoEffect(card);
+                //effect.DoEffect(card);
+                attackAim.Attack(card);
             }
         }
 

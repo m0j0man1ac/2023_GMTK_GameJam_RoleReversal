@@ -17,7 +17,7 @@ MonoBehaviour:
   artIcon: {fileID: 0}
   desription: Weakens hero's attacks.
   energyCost: 0
-  dialougeGroup: {fileID: 0}
+  dialougeGroup: {fileID: 11400000, guid: c8bc2b662dbbc2b40bae4d780c1b82ec, type: 2}
   dramaVal: -20
   braveryVal: 10
   damage: 0

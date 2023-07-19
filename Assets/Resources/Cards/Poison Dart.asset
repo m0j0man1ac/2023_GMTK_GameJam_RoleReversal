@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Poison Dart
   m_EditorClassIdentifier: 
   name: Poison Dart
-  cardType: 
+  cardType: 0
   artIcon: {fileID: -2143334544051856242, guid: b569e8e26ec45ec4fa1e2467739c464c, type: 3}
   desription: 1 damage at the start of each turn, lasts 3 turns
   energyCost: 0
+  dialougeGroup: {fileID: 11400000, guid: d7d1aca43c79111449d06e95c3d2187f, type: 2}
   dramaVal: 10
   braveryVal: 0
   damage: 1
   healing: 0
+  effects: []

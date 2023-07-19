@@ -17,7 +17,7 @@ MonoBehaviour:
   artIcon: {fileID: 21300000, guid: bf6b34e08a8ac7f4ab0693f9dfde96b6, type: 3}
   desription: 
   energyCost: 0
-  dialougeGroup: {fileID: 0}
+  dialougeGroup: {fileID: 11400000, guid: d7d1aca43c79111449d06e95c3d2187f, type: 2}
   dramaVal: 0
   braveryVal: 0
   damage: 1
