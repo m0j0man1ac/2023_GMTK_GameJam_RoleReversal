@@ -17,7 +17,7 @@ MonoBehaviour:
   artIcon: {fileID: 0}
   desription: Stops hero's next attack
   energyCost: 0
-  dialougeGroup: {fileID: 0}
+  dialougeGroup: {fileID: 11400000, guid: c8bc2b662dbbc2b40bae4d780c1b82ec, type: 2}
   dramaVal: 0
   braveryVal: -20
   damage: 1

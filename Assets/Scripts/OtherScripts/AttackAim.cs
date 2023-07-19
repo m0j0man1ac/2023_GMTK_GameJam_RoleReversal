@@ -21,11 +21,11 @@ public class AttackAim : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             isMoving = false;
         }
-        if(isMoving)
+        if (isMoving)
         {
             transform.position = new Vector2(originalX + Mathf.Sin(Time.time * 5) * speed, 0);
         }
@@ -48,6 +48,14 @@ public class AttackAim : MonoBehaviour
             {
                 Debug.Log("hit");
             }
+        }
+    }
+
+    public void Attack(Card card)
+    {
+        if(isMoving == false && closestDistance > 0.01f)
+        {
+
         }
     }
 

@@ -17,6 +17,7 @@ MonoBehaviour:
   artIcon: {fileID: 0}
   desription: Manipulate the hero with empathy
   energyCost: 0
+  dialougeGroup: {fileID: 11400000, guid: b2738f645570df145b113597b36be689, type: 2}
   dramaVal: 10
   braveryVal: -20
   damage: -10
