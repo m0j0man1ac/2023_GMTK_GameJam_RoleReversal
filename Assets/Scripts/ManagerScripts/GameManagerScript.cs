@@ -115,6 +115,7 @@ public class GameManagerScript : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenDealtCards);
         }
 
+        EnergyManager.instance.MaxEnergy();
         currentTurn = TurnState.Villain;
         yield return null;
     }
@@ -295,10 +296,13 @@ public class GameManagerScript : MonoBehaviour
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.mousePosition.y > Screen.height / 3)
+        Card card = heldCard.GetComponent<CardDisplay>().setCard;
+
+        if (Input.mousePosition.y > Screen.height / 3
+            && card.energyCost <= EnergyManager.instance.energy)
         {
             hand.Remove(heldCard);
-            Card card = heldCard.GetComponent<CardDisplay>().setCard;
+            EnergyManager.instance.ChangeEnergy(-card.energyCost);
             PlayCard(card);
 
             var playedCard = heldCard;
@@ -342,7 +346,7 @@ public class GameManagerScript : MonoBehaviour
             foreach (CardEffect effect in card.effects)
             {
                 Debug.Log("doing an effect");
-                //effect.DoEffect(card);
+                effect.DoEffect(card);
                 attackAim.Attack(card);
             }
         }
@@ -407,6 +411,7 @@ public class GameManagerScript : MonoBehaviour
     public void EndTurn()
     {
         if (currentTurn != TurnState.Villain) return;
+        EnergyManager.instance.ClearEnergy();
 
         endTurnDel?.Invoke();
 
