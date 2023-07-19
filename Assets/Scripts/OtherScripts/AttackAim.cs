@@ -14,8 +14,13 @@ public class AttackAim : MonoBehaviour
     public bool isMoving = true;
 
     public PolygonCollider2D playerCol;
+
+    public Card card;
+
+    public bool attackAttacked = false;
     void Awake()
     {
+        playerCol = GameObject.Find("Hero").GetComponent<PolygonCollider2D>();
         originalX = this.transform.position.x;
     }
 
@@ -27,7 +32,14 @@ public class AttackAim : MonoBehaviour
         }
         if (isMoving)
         {
-            transform.position = new Vector2(originalX + Mathf.Sin(Time.time * 5) * speed, 0);
+            transform.position = new Vector2(originalX + Mathf.Sin(Time.time * 5) * speed, GameObject.Find("Hero").GetComponent<Transform>().transform.position.y);
+        }
+
+        if (isMoving == false && closestDistance > 0.01f && attackAttacked == false)
+        {
+            Attack();
+            attackAttacked = true;
+            Destroy(this.gameObject);
         }
         //move attack aim with mouse x position
         /*
@@ -51,11 +63,16 @@ public class AttackAim : MonoBehaviour
         }
     }
 
-    public void Attack(Card card)
+    public void PreAttack(Card card)
     {
-        if(isMoving == false && closestDistance > 0.01f)
-        {
+        this.card = card;
+    }
 
+    public void Attack()
+    {
+        foreach (CardEffect effect in card.effects)
+        {
+            effect.DoEffect(card);
         }
     }
 
