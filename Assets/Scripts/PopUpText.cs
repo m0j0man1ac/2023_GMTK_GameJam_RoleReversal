@@ -60,6 +60,7 @@ public class PopUpText : MonoBehaviour
         //popup.DOLocalMoveX(1, popUpTime*1.5f).SetEase(Ease.OutSine);
         popup.DOScale(Vector3.one * popUPScale, popUpTime*.3f).SetEase(Ease.OutSine)
             .OnComplete(() => { popup.DOScale(Vector3.zero, popUpTime * .6f).SetEase(Ease.InSine); });
+        textComp.MyDOColorPunch(Color.red*.5f, .2f, Ease.OutSine, Ease.InSine);
         //popup.DOLocalMoveY(2, popUpTime).SetEase(Ease.OutElastic);
         popup.DOLocalJump(jumpTo, 2, 1, popUpTime*1.5f).SetEase(Ease.InSine)        
             .OnComplete(() => { Destroy(popup.gameObject); });

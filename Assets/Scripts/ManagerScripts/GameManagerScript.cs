@@ -338,12 +338,14 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
+        DialougeManagerScriptv2.instance.StartTextBubble(card);
+
         //HealthManagerScript.instance.HeroDamage((int)(card.damage*villainAttackMult));
         //HealthManagerScript.instance.VillainDamage(-(int)(card.healing*villainHealMult));
 
-        DialogueManagerScript.dialogueOption = (DialogueOption)card.cardType;
-        Debug.Log(DialogueManagerScript.dialogueOption + ", " + (DialogueOption)card.cardType);
-        DialogueManagerScript.instance.TriggerDialogue((DialogueOption)card.cardType);
+        //DialogueManagerScript.dialogueOption = (DialogueOption)card.cardType;
+        //Debug.Log(DialogueManagerScript.dialogueOption + ", " + (DialogueOption)card.cardType);
+        //DialogueManagerScript.instance.TriggerDialogue((DialogueOption)card.cardType);
 
         //if (CourageMetre.instance == null) return;
         //CourageMetre.instance.increaseCourage((int)card.braveryVal);

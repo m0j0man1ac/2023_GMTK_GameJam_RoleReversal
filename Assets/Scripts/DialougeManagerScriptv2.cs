@@ -8,6 +8,8 @@ using System.Linq;
 
 public class DialougeManagerScriptv2 : MonoBehaviour
 {
+    public static DialougeManagerScriptv2 instance;
+
     public Transform dialougeParent;
     public GameObject dialougeBox;
     public List<Transform> activeDialouges = new List<Transform>();
@@ -16,6 +18,11 @@ public class DialougeManagerScriptv2 : MonoBehaviour
     private float mostRecentHeight;
 
     public float spacing = 20;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void Update()
     {
@@ -45,13 +52,16 @@ public class DialougeManagerScriptv2 : MonoBehaviour
 
     public void StartTextBubble(Card card)
     {
-        StartTextBubble(card.dialougeGroup.dialouges.GrabRandom());
+        var sentence = "There should of been dialouge here";
+        if (card.dialougeGroup) sentence = card.dialougeGroup?.dialouges.GrabRandom();
+        StartTextBubble(sentence);
     }
 
     public void StartTextBubble(string dialouge)
     {
         var tempSpeech = GameObject.Instantiate(dialougeBox, dialougeParent);
         activeDialouges.Add(tempSpeech.transform);
+        UpdatePositions();
 
         dialougeParent.DOKill();
         dialougeParent.DOJump(dialougeParent.position, .3f, 1, .4f).SetEase(Ease.OutElastic);
@@ -72,7 +82,8 @@ public class DialougeManagerScriptv2 : MonoBehaviour
         reader.StopAllCoroutines();
         reader.objectText.text = reader.text;
 
-        await reader.FadeOut();
+        if (reader.activeFade != null) await reader.activeFade;
+        else await reader.FadeOut();
         //activeDialouges.Remove(dialouge);
         //Destroy(dialouge.gameObject);
     }

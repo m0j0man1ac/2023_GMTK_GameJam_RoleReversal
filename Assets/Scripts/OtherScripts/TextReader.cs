@@ -23,7 +23,7 @@ public class TextReader : MonoBehaviour
     void Start()
     {
         objectText = GetComponentInChildren<TMP_Text>();
-        objectText.text = "";
+        //objectText.text = "";
 
         //StartDialouge(text);
     }
@@ -49,9 +49,11 @@ public class TextReader : MonoBehaviour
             yield return new WaitForSeconds(1/lettersPerSecond);
         }
 
-        FadeOut();
+        activeFade = FadeOut();
         yield return null;
     }
+
+    public Task activeFade;
 
     public async Task FadeOut()
     {

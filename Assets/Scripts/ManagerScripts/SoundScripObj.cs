@@ -103,7 +103,8 @@ public class SoundScripObj : ScriptableObject
             var source = audioSourceParam;
             if (source == null)
             {
-                var _obj = new GameObject("Sound", typeof(AudioSource));
+                var _obj = new GameObject(this.ToString(), typeof(AudioSource));
+                _obj.transform.parent = AudioManagerScript.instance.transform;
                 source = _obj.GetComponent<AudioSource>();
             }
 
