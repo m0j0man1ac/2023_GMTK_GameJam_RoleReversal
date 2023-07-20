@@ -17,6 +17,7 @@ public class HeroAnimationEditor : Editor
         GUILayout.BeginHorizontal();
             if (GUILayout.Button("Idle")) ;
             if (GUILayout.Button("Attack Prep")) myScript.AttackPrep();
+            if (GUILayout.Button("Attack")) myScript.Attack();
             if (GUILayout.Button("Hit")) myScript.Hit();
         GUILayout.EndHorizontal();
 

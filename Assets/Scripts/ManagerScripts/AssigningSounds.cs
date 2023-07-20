@@ -11,7 +11,7 @@ public class AssigningSounds : MonoBehaviour
     public SoundScripObj endTurn;
 
     private void Start() {AddSounds();}
-    private void OnEnable(){AddSounds();}
+    //private void OnEnable(){AddSounds();}
 
     public void AddSounds()
     {

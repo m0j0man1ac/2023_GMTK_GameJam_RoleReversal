@@ -122,6 +122,11 @@ public class HeroAnimation : MonoBehaviour
         _anim.CrossFade(currentAnims.attackPrep,0,0);
     }
 
+    public void Attack()
+    {
+        _anim.CrossFade(currentAnims.attack, 0, 0);
+    }
+
     #region temp
     public float hitTime = .4f;
     Material defaultMat;

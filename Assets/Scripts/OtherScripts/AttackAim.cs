@@ -70,10 +70,10 @@ public class AttackAim : MonoBehaviour
 
     public void Attack()
     {
-        foreach (CardEffect effect in card.effects)
-        {
-            effect.DoEffect(card);
-        }
+        //foreach (CardEffect effect in card.effects)
+        //{
+        //    effect.DoEffect(card);
+        //}
     }
 
 

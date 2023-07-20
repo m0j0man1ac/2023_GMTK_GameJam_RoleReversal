@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90aef4b33d6b91047bea19c24237e4f1, type: 3}
   m_Name: CardRifle
   m_EditorClassIdentifier: 
+  mixGroup: {fileID: -4021265915300755952, guid: 1afbae09a24ba7247860f1380e1e47bb, type: 2}
   clips:
   - {fileID: 8300000, guid: 38ba2db94c439a94e8e4ad3d6ae019bb, type: 3}
   volMin: 0.121

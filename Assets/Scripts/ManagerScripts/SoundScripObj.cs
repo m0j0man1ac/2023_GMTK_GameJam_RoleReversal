@@ -109,7 +109,7 @@ public class SoundScripObj : ScriptableObject
             }
 
             //set config
-            source.outputAudioMixerGroup = mixGroup;
+            if(mixGroup) source.outputAudioMixerGroup = mixGroup;
             source.clip = GetClip();
             source.volume = Random.Range(volMin, volMax);
             source.pitch = useSemitones

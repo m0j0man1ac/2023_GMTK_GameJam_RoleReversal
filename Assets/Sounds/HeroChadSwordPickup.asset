@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aef4b33d6b91047bea19c24237e4f1, type: 3}
+  m_Name: HeroChadSwordPickup
+  m_EditorClassIdentifier: 
+  mixGroup: {fileID: -4021265915300755952, guid: 1afbae09a24ba7247860f1380e1e47bb, type: 2}
+  clips:
+  - {fileID: 8300000, guid: 57b3426ba63a10a429710d458b769ce8, type: 3}
+  volMin: 0.187
+  volMax: 0.24
+  pitchMin: 1.1224556
+  pitchMax: 1.1224556
+  playOrder: 0
+  useSemitones: 1
+  semitoneMin: 2
+  semitoneMax: 2

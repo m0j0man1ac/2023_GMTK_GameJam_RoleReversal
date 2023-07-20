@@ -256,7 +256,7 @@ public class GameManagerScript : MonoBehaviour
         int idx = hand.IndexOf(hoveredCard);
         if (idx == -1) return;
 
-        cardRifleDel.Invoke();
+        cardRifleDel?.Invoke();
         hoveredCard.GetComponent<SortingGroup>().sortingOrder += 1;
 
         float arc = cardAngleSpacing * (hand.Count - 1);
@@ -345,7 +345,7 @@ public class GameManagerScript : MonoBehaviour
             {
                 Debug.Log("doing an effect");
                 //effect.DoEffect(card);
-                attackAim.Attack(card);
+                //attackAim.Attack(card);
             }
         }
 
